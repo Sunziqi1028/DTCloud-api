@@ -1,0 +1,10 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /                         --> DTCloudAPI/routers.InitApiRouter.func1 (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8090
+[GIN] 2021/03/07 - 15:53:36 | 200 |            0s |       127.0.0.1 | GET      "/"
+[GIN] 2021/03/07 - 15:53:54 | 200 |            0s |       127.0.0.1 | GET      "/"
