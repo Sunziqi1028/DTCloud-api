@@ -1,0 +1,60 @@
+{"errcode": 1000, "errmsg": "no", "message": "\u5e10\u53f7\u5bc6\u7801\u9519\u8bef! Access Denied"}
+
+
+{'login': 'admin','password': '1','type': '0'}
+
+
+
+http://122.51.164.176:8072/api/v1/login/0
+
+login=admin&password=123&type=0
+
+./wrk -t1 -c1 -d10s -T3s --script=1.lua --latency http://122.51.164.176:8072/api/v1/login/0
+
+./wrk -t1 -c1 -d10s -T3s --script=1.lua --latency http://192.168.0.91:8890/api/v1/login/0
+
+dzh1234@ubuntu:~/work/wk/wrk$ ./wrk -t4 -c50 -d30s -T3s --script=1.lua --latency http://122.51.164.176:8072/api/v1/login/0
+Running 10s test @ http://122.51.164.176:8072/api/v1/login/0
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   105.79ms   22.57ms 293.29ms   97.65%
+    Req/Sec     8.67      2.21    10.00     82.14%
+  Latency Distribution
+     50%  101.87ms
+     75%  106.12ms
+     90%  111.40ms
+     99%  293.29ms
+  84 requests in 10.07s, 78.26KB read
+Requests/sec:      8.34
+Transfer/sec:      7.77KB
+
+
+dzh1234@ubuntu:~/work/wk/wrk$ ./wrk -t4 -c50 -d30s -T3s --script=1.lua --latency http://192.168.0.91:8890/api/v1/login/0
+Running 10s test @ http://192.168.0.91:8890/api/v1/login/0
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    41.40ms    9.60ms 154.39ms   95.55%
+    Req/Sec    24.45      5.30    30.00     45.45%
+  Latency Distribution
+     50%   39.12ms
+     75%   40.65ms
+     90%   43.17ms
+     99%   72.27ms
+  245 requests in 10.06s, 145.23KB read
+  Non-2xx or 3xx responses: 245
+Requests/sec:     24.36
+Transfer/sec:     14.44KB
+
+第五行是延迟统计：平均延迟，标准差，最大延迟，正负一个标准差的结果占比
+
+第六行是线程请求次数统计：每个线程的平均请求次数，标准差，最大请求次数，正负一个标准差的结果占比
+
+第八到十一行是延迟分布统计：50%的请求延迟在多少以内，75的请求延迟在多少以内，依次类推
+
+第十二行是总请求数
+
+-t4 开启四个线程
+-c10 保持10个连接
+-d10s 持续测试10秒
+-T3s 超时设置为3秒
+–latency 统计延迟分布

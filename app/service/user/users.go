@@ -8,10 +8,10 @@ package user
 import (
 	"gitee.com/open-product/dtcloud-api/app/global/constant"
 	"gitee.com/open-product/dtcloud-api/app/global/token"
+	"gitee.com/open-product/dtcloud-api/app/model"
 	"gitee.com/open-product/dtcloud-api/app/service/user/password"
 	"gitee.com/open-product/dtcloud-api/app/util/cache"
 	"gitee.com/open-product/dtcloud-api/app/util/response"
-	"gitee.com/open-product/dtcloud-api/model"
 	"github.com/gin-gonic/gin"
 	"time"
 )

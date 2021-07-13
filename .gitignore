@@ -3,3 +3,10 @@
 .idea
 /storage/logs/*
 /static/upload/*
+api/
+cmd/cli/
+cmd/web/
+demo/
+public/
+static/upload/
+test/

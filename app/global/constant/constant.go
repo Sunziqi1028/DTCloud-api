@@ -71,6 +71,10 @@ const (
 	UsersLoginUsersFailMsg  string = "Users创建失败"
 	UsersLoginUsersFailCode int    = -400207
 
+	UsersLoginPWDErrcode int    = 1000
+	UsersLoginPWDerrmsg  string = "no"
+	UsersLoginPWDMessage string = "帐号密码错误! Access Denied"
+
 	ParamsFailMsg      string = "参数解析失败"
 	ErrorsTokenInvalid string = "无效的token"
 )

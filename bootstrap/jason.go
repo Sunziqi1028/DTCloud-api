@@ -17,7 +17,7 @@ func check() {
 	//login:admin
 	//password:123
 	//type:0
-	data := `login=admin&password=123&type=0`
+	data := `login=admin&password=1&type=0`
 	res, err := http.Post(
 		url,
 		contentType,

@@ -8,11 +8,11 @@ package bootstrap
 import (
 	"gitee.com/open-product/dtcloud-api/app/global/errno"
 	"gitee.com/open-product/dtcloud-api/app/global/variable"
+	"gitee.com/open-product/dtcloud-api/app/http/validator/common/register_validator"
 	"gitee.com/open-product/dtcloud-api/app/service/sys_log_hook"
 	"gitee.com/open-product/dtcloud-api/app/util/gorm_v2"
 	"gitee.com/open-product/dtcloud-api/app/util/zap_factory"
 	"gitee.com/open-product/dtcloud-api/config/configuration"
-	"gitee.com/open-product/dtcloud-api/validator/common/register_validator"
 	"log"
 	"os"
 )

@@ -8,11 +8,10 @@ package routers
 import (
 	"gitee.com/open-product/dtcloud-api/app/global/constant"
 	"gitee.com/open-product/dtcloud-api/app/global/variable"
-	"gitee.com/open-product/dtcloud-api/handler"
-	"gitee.com/open-product/dtcloud-api/handler/chaptcha"
-	"gitee.com/open-product/dtcloud-api/routers/middleware/authorization"
+	"gitee.com/open-product/dtcloud-api/app/http/controller"
+	"gitee.com/open-product/dtcloud-api/app/http/controller/chaptcha"
+	"gitee.com/open-product/dtcloud-api/app/http/validator/core/factory"
 	"gitee.com/open-product/dtcloud-api/routers/middleware/cors"
-	"gitee.com/open-product/dtcloud-api/validator/core/factory"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -57,15 +56,16 @@ func InitApiRouter() *gin.Engine {
 		vApi.POST("login/:id", factory.Create(constant.ValidatorPrefix+"UsersLogin"))
 		vApi.GET("sms/:id", (&chaptcha.Captcha{}).CheckCode)
 		vApi.POST("signup/:id", factory.Create(constant.ValidatorPrefix+"UsersSignup"))
+		//vApi.POST("/api/v1/page/:id",factory.Create(constant.ValidatorPrefix+"Page"))
 
-		vApi.POST("upload")
+		//vApi.POST("upload",)
 
 	}
 
 	// 【需要token】中间件验证的路由
-	vApi.Use(authorization.CheckAuth())
+	//vApi.Use(authorization.CheckAuth())
 
-	new(handler.MemberController).HandlerRouter(vApi)
+	new(controller.MemberController).HandlerRouter(vApi)
 
 	return router
 

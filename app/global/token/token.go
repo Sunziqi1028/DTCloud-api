@@ -9,7 +9,7 @@ import (
 	"gitee.com/open-product/dtcloud-api/app/global/constant"
 	"gitee.com/open-product/dtcloud-api/app/global/errno"
 	"gitee.com/open-product/dtcloud-api/app/global/variable"
-	"gitee.com/open-product/dtcloud-api/model"
+	"gitee.com/open-product/dtcloud-api/app/model"
 	"gitee.com/open-product/dtcloud-api/routers/middleware/my_jwt"
 	"github.com/dgrijalva/jwt-go"
 	"time"

@@ -8,8 +8,8 @@ package configuration
 import (
 	"gitee.com/open-product/dtcloud-api/app/global/errno"
 	"gitee.com/open-product/dtcloud-api/app/global/variable"
+	"gitee.com/open-product/dtcloud-api/app/http/validator/core/container"
 	"gitee.com/open-product/dtcloud-api/config/configuration/interfconfig"
-	"gitee.com/open-product/dtcloud-api/validator/core/container"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
