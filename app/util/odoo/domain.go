@@ -1,9 +1,12 @@
 package odoo
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
+
+var TreeBuff string
 
 type TreeNode struct {
 	Value       string
@@ -153,4 +156,84 @@ func DomainFormStringToList(domain string) map[int]string {
 
 	}
 	return list
+}
+
+//中序遍历操作方法，根据传入的函数中序遍历节点做特定操作
+func (node *TreeNode) TraverseFunc(f func(node *TreeNode)) {
+	if node == nil {
+		return
+	}
+
+	if node.Left != nil {
+		fmt.Printf(`( `)
+		//TreeBuff = fmt.Sprintf(`( `,TreeBuff)
+	}
+	//switch node.Value {
+	//case "|":
+	//	TreeBuff = fmt.Sprintf(`(%s or `,TreeBuff)
+	//case "!":
+	//	TreeBuff = fmt.Sprintf(`%s not `,TreeBuff)
+	//case "&":
+	//	TreeBuff = fmt.Sprintf(`%s and `,TreeBuff)
+	//default:
+	//	TreeBuff = fmt.Sprintf(`%s %s `,TreeBuff,node.Value)
+	//}
+
+	if node.Value == "!" {
+		f(node)
+		node.Left.TraverseFunc(f)
+		if node.Right == nil {
+			fmt.Printf(`) `)
+			//TreeBuff = fmt.Sprintf(`)`,TreeBuff)
+			//fmt.Printf(` ) `)
+		}
+
+	} else {
+		node.Left.TraverseFunc(f)
+		f(node)
+		node.Right.TraverseFunc(f)
+		if node.Right != nil {
+			fmt.Printf(`) `)
+			//TreeBuff = fmt.Sprintf(`)`,TreeBuff)
+			//fmt.Printf(` ) `)
+		}
+	}
+
+}
+
+//方法中序打印Value
+func (node *TreeNode) Traverse() {
+	node.TraverseFunc(func(n *TreeNode) {
+		if node != nil {
+			n.Print()
+		}
+	})
+}
+
+//node.Print方法打印节点Value
+func (node TreeNode) Print() {
+	//switch node.Value {
+	//case "|":
+	//	TreeBuff = fmt.Sprintf(`(%s or `,TreeBuff)
+	//case "!":
+	//	TreeBuff = fmt.Sprintf(`%s not `,TreeBuff)
+	//case "&":
+	//	TreeBuff = fmt.Sprintf(`%s and `,TreeBuff)
+	//default:
+	//	TreeBuff = fmt.Sprintf(`%s %s `,TreeBuff,node.Value)
+	//}
+	str := A1(node.Value)
+	fmt.Printf("%s", str)
+}
+
+func A1(str string) string {
+	switch str {
+	case "|":
+		str = fmt.Sprintf(" or ")
+	case "!":
+		str = fmt.Sprintf(" not ")
+	case "&":
+		str = fmt.Sprintf(" and ")
+	}
+	return str
 }
