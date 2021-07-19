@@ -3,7 +3,10 @@ package curd
 import (
 	"encoding/json"
 	"fmt"
+	"gitee.com/open-product/dtcloud-api/app/http/controller/curd"
 	"gitee.com/open-product/dtcloud-api/app/util"
+	"gitee.com/open-product/dtcloud-api/app/util/odoo"
+	"strings"
 	"testing"
 )
 
