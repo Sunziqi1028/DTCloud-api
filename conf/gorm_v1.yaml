@@ -61,7 +61,7 @@ Gormv2: # 只针对 gorm  操作数据库有效
     SlowThreshold: 30
     Write:
       Host: "122.51.164.176"
-      DataBase: "dtcloud"
+      DataBase: "DT"
       Port: 5432
       Prefix: "tb_"
       User: "dtcloud"
@@ -74,7 +74,7 @@ Gormv2: # 只针对 gorm  操作数据库有效
     IsOpenReadDb: 0            # 是否开启读写分离配置（1=开启、0=关闭），IsOpenReadDb=1,Read  部分参数有效，否则Read部分参数直接忽略
     Read:
       Host: "122.51.164.176"
-      DataBase: "dtcloud"
+      DataBase: "DT"
       Port: 5432
       Prefix: "tb_"
       User: "dtcloud"
